@@ -1,0 +1,11 @@
+(lehigh set)
+select * from ThetaXi limit 1
+2017-11-26T21:32:01Z | 7541 | 
+y--- m- d- h- m- s-
+
+(redd set)
+select * from House_1_agg limit 3
+physical_quantity | power | 
+type | apparent | 
+2011-04-18 09:22:09-04:00 | 342.820007324 | 
+y--- m- d- h- m- s-

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+        <script type="text/javascript" src="js/request.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Energy Data Analysis</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <div id = "header" class = "row">
+                <a href = "https://www.lehigh.edu/engineering/faculty/depts/cse.html">
+                    <img src = "images/lehigh_university_nav_logo.png" style = "height:54px; width:256px; margin-top:20px; margin-left:20px; float:left;">
+                    </a>
+            <div style = "width:80%; height:100%; margin:auto;">
+                <h1 style = "height:20%; color:#dddddd;">
+                    Energy Disaggregation
+                </h1>
+                <h2 style = "height:20%; color:#dddddd;">
+                    Sahib Singh, William Trost
+                    
+                </h2>
+            </div>
+        </div>
+        <div id = "container">
+            <div id = "junk" style = "height:100px; top:100px;"></div>
+            <div id = "banner">
+                <h2>Control</h2>
+                <form>
+                    Building:
+                    <br>
+                    <select id = "buildingName" value = "House_1">
+                        <option id="House_1">House 1</option>
+                        <option id="House_2">House 2</option>
+                    </select>
+                    <br>
+                    <br>
+                    Records:
+                    <br>
+                    <input type = "text" id = "recordCount" title = "Records in query." value = "1000">
+                    <br>
+                    <br>
+                    <br>
+                    <button type = "button" id = "submit" title = "Request building data.">Load Data</button>
+                    <br>
+                    <br>
+                    Display:
+                    <br>
+                    <button type = "button" id = "pred" title = "Show predictive results.">Predictive</button>
+                    <br>
+                    <button type = "button" id = "gt" title = "Show ground-truth data.">Ground-Truth</button>
+                    <br>
+                    <button type = "button" id = "agg" title = "Show raw data.">Aggregate</button>
+                </form>
+                <div class = "desc1">
+                        <h4 id = "predDesc">
+                            Select a building from the dropdown list.
+                            <br><br>
+                            The record count will determine how much data to retrieve from the server.
+                            <br><br>
+                            The page may take a few seconds to load.
+                        </h4>
+                </div>
+                <div class = "descSpacer"></div>
+                
+                <!--<div class = "desc2">
+                    <h3 id = "gtDesc"></h3>
+                </div>
+
+                <div class = "descSpacer"></div>-->
+                
+            </div>
+            <!--<div id = "leftBuffer">&nbsp</div>-->
+            <div id = "ChartHeader">
+                <h2 id = "houseLabel"></h2>
+            </div>
+            <!--<div id = "MainDisplay" class = "chart"></div>
+            <div class = "chartSpacer"></div>-->
+            
+            <div id = "theChart" class = "chart"></div>
+            <div class = "chartSpacer"></div>
+            <!--<div id = "Aggregate" class = "chart"></div>
+            <div class = "chartSpacer"></div>-->
+            <!--<div id = "GTDisag" class = "chart"></div>
+            <div class = "chartSpacer"></div>-->
+            
+            <!--<div id = "rightBuffer">&nbsp</div>-->
+        </div>
+        <div id = "footer" class = "row">
+            
+            <div style = "width:60%; height:100%; margin:auto;">
+                <h2 style = "height:100%; color:#dddddd;">
+                    Advisor: Professor Liang Cheng
+                    <br>
+                    2017 Lehigh University
+                </h2>
+            </div>
+        </div>
+    </body>
+</html>

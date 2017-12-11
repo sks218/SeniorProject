@@ -1,0 +1,6 @@
+create table House_1_agg_1 (Unix int, Time varchar(32), Power float)
+create table House_1_disag_gt_1 (Unix int, Time varchar(32), Sockets float, Fridge float, Dishwasher float, Microwave float, Light float)
+create table House_1_disag_pred_1 (Unix int, Time varchar(32), Sockets float, Fridge float, Dishwasher float, Microwave float, Light float)
+create table House_2_agg_1 (Unix int, Time varchar(32), Power float)
+create table House_2_disag_gt_1 (Unix int, Time varchar(32), Sockets float, Fridge float, Dishwasher float, Microwave float, Light float)
+create table House_2_disag_pred_1 (Unix int, Time varchar(32), Sockets float, Fridge float, Dishwasher float, Microwave float, Light float)

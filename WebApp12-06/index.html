@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+        <script type="text/javascript" src="js/request.js"></script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Energy Data Analysis</title>
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <div id = "header" class = "row">
+                <a href = "https://www.lehigh.edu">
+                    <img src = "images/lehigh_university_nav_logo.png" style = "height:54px; width:256px; margin-top:20px; margin-left:20px; float:left;">
+                    </a>
+            <div style = "width:80%; height:100%; margin:auto;">
+                <h1 style = "height:20%; color:#dddddd;">
+                    Energy Disaggregation Using Non-Intrusive Load Monitoring
+                </h1>
+                <h2 style = "height:20%; color:#dddddd;">
+                    Sahib Singh, William Trost
+                    
+                </h2>
+            </div>
+        </div>
+        <div id = "container">
+            <div id = "junk" style = "height:100px; top:100px;"></div>
+            <div id = "banner">
+                <h2>Control</h2>
+                <form>
+                    Building:
+                    <br>
+                    <select id = "buildingName" value = "House_1">
+                        <!--<option id="House_1">House_1</option>
+                        <option id="House_2">House_2</option>-->
+                        <option id="AlphaChiOmega">Alpha Chi Omega</option>
+                        <option id="AlphaGammaDelta">Alpha Gamma Delta</option>
+                        <option id="AlphaPhi">Alpha Phi</option>
+                        <option id="AlphaTauOmega">Alpha Tau Omega</option>
+                        <option id="Brodhead">Brodhead</option>
+                        <option id="Centennial1">Centennial 1</option>
+                        <option id="Centennial2">Centennial 2</option>
+                        <option id="ChiPhi">Chi Phi</option>
+                        <option id="ChiPsi">Chi Psi</option>
+                        <option id="DeltaChi">Delta Chi</option>
+                        <option id="DeltaUpsilon">Delta Upsilon</option>
+                        <option id="Dravo">Dravo</option>
+                        <option id="Drinker">Drinker</option>
+                        <option id="GammaPhiBeta">Gamma Phi Beta</option>
+                        <option id="KappaAlpha">Kappa Alpha</option>
+                        <option id="KappaAlphaTheta">Kappa Alpha Theta</option>
+                        <option id="KappaDelta">Kappa Delta</option>
+                        <option id="KappaSigma">Kappa Sigma</option>
+                        <option id="MM">McClintic-Marshall</option>
+                        <option id="PhiDeltaTheta">Phi Delta Theta</option>
+                        <option id="PhiKappaAlpha">Phi Kappa Alpha</option>
+                        <option id="PhiKappaTheta">Phi Kappa Theta</option>
+                        <option id="PhiSigmaKappa">Phi Sigma Kappa</option>
+                        <option id="PiBetaPhi">Pi Beta Phi</option>
+                        <option id="PsiUpsilon">Psi Upsilon</option>
+                        <option id="Richards">Richards</option>
+                        <option id="SayreParkA">SayrePark A</option>
+                        <option id="SayreParkB">SayrePark B</option>
+                        <option id="SayreParkC">SayrePark C</option>
+                        <option id="SigmaChi">Sigma Chi</option>
+                        <option id="SigmaPhiEpsilon">Sigma Phi Upsilon</option>
+                        <option id="Taylor">Taylor</option>
+                        <option id="ThetaChi">Theta Chi</option>
+                        <option id="ThetaXi">Theta Xi</option>
+                        <option id="TrembleyA">Trembley A</option>
+                        <option id="TrembleyB">Trembley B</option>
+                        <option id="TrembleyC">Trembley C</option>
+                        <option id="TrembleyD">Trembley D</option>
+                        <option id="TrembleyE">Trembley E</option>
+                        <option id="TrembleyF">Trembley F</option>
+                        <option id="TrembleyG">Trembley G</option>
+                    </select>
+                    <br>
+                    <br>
+                    Start time:
+                    <input type = "datetime-local" id = "startDate" title = "Start time.">
+                    <br>
+                    End time:
+                    <input type = "datetime-local" id = "endDate" title = "End time.">
+                    <!--Records:
+                    <br>
+                    <input type = "text" id = "recordCount" title = "Records in query." value = "200">
+                    <br>-->
+                    <br>
+                    <br>
+                    <button type = "button" id = "submit" title = "Request building data.">Submit</button>
+                </form>
+                <div class = "desc1">
+                        <h4 id = "predDesc">
+                            Select a building from the dropdown list.
+                            <br><br>
+                            The start and end times will determine how much data to retrieve from the server.
+                            <br><br>
+                            The page may take a few seconds to load.
+                        </h4>
+                </div>
+                <div class = "descSpacer"></div>
+                
+                <!--<div class = "desc2">
+                    <h3 id = "gtDesc"></h3>
+                </div>
+
+                <div class = "descSpacer"></div>-->
+                
+            </div>
+            <!--<div id = "leftBuffer">&nbsp</div>-->
+            <div id = "ChartHeader">
+                <h2 id = "houseLabel"></h2>
+            </div>
+            <!--<div id = "MainDisplay" class = "chart"></div>
+            <div class = "chartSpacer"></div>-->
+            
+            <div id = "PredDisag" class = "chart"></div>
+            <div class = "chartSpacer"></div>
+            <!--<div id = "Aggregate" class = "chart"></div>
+            <div class = "chartSpacer"></div>-->
+            <!--<div id = "GTDisag" class = "chart"></div>
+            <div class = "chartSpacer"></div>-->
+            
+            <!--<div id = "rightBuffer">&nbsp</div>-->
+            
+        </div>
+        <div id = "footer" class = "row">
+            
+            <div style = "width:60%; height:100%; margin:auto;">
+                <h2 style = "height:100%; color:#dddddd;">
+                    Advisor: Professor Liang Cheng
+                    <br>
+                    2017 Lehigh University
+                </h2>
+            </div>
+        </div>
+    </body>
+</html>
